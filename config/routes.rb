@@ -1,10 +1,5 @@
 Temp::Application.routes.draw do
 
-  get "comments/new"
-  get "comments/create"
-  get "comments/edit"
-  get "comments/delete"
-  get "comments/destroy"
   root :to => "forum#index", via: [:get]
   resources :topics do
     member do
