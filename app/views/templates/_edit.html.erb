@@ -1,0 +1,9 @@
+<script type="text/template" id="topics-show-tmpl">
+      <div class="show-topic col-sm-10 col-sm-offset-2">
+      <h2>{{= topic.get('title') }} </h2>- <i>{{= topic.get('name') }}</i>
+        <a class="pull-right btn- btn-primary btn-sm" href="/topics/{{= topic.get('id') }}/edit">Edit</a>
+      <blockquote>
+        {{= topic.get('content') }}
+      </blockquote>
+    </div>
+</script>
