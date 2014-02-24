@@ -1,4 +1,6 @@
-<h2 class="col-sm-10 col-sm-offset-3">Create a new topic</h2><br />
+<%= link_to 'Back', root_path, :class => 'btn btn-success' %><br /><br />
+<div class="col-sm-12 show-topic">
+  <h2 class="col-sm-10 col-sm-offset-3">Create a new topic</h2><br />
 <%= form_for(:topic, :url => {:action => 'create'},
              :html => {:id => 'edit-topic-form', :class => 'form-horizontal col-sm-6 col-sm-offset-2'}) do |f| %>
 
@@ -25,3 +27,4 @@
       <%= submit_tag("Create Topic", :class => 'col-sm-offset-5 btn btn-primary') %>
     </div>
 <% end %>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Temp</title>
+  <title>Ruby on Rails Forum | <%= @title %></title>
   <%= render 'layouts/stylesheets' %>
   <%= render 'layouts/javascripts' %>
   <%= csrf_meta_tags %>
@@ -16,8 +16,7 @@
             root_path %>
       </div>
       <div class="heading col-sm-10">
-        <h3>One Stop portal for all that relates to Ruby on Rails, MongoDB, Mongoid, Bakckbone,
-        Coffeescript, Twitter Bootstrap</h3>
+        <h3>One Stop portal for all that relates to Ruby on Rails and MongoDB</h3>
       </div>
     </div>
     <div class="ccc col-lg-10 col-lg-offset-1 mid clearfix">
@@ -25,13 +24,10 @@
     </div>
     <div class="ccc col-lg-10 col-lg-offset-1 bottom">
       <footer>
-        &copy;Copyright 2014, Mansoor Khan
+        &copy;Copyright <%= Time.now.year %>, RoR Forum
       </footer>
     </div>
   </div>
 </div>
-<%= render 'templates/new.html.erb' %>
-<%= render 'templates/index.html.erb' %>
-
 </body>
 </html>

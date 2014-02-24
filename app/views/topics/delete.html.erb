@@ -1,2 +1,11 @@
-<h1>Forum#delete</h1>
-<p>Find me in app/views/forum/delete.html.erb</p>
+<%= link_to 'Back', topic_path(@topic.id), :class => 'btn btn-success' %><br /><br />
+<div class="col-sm-6 show-topic">
+  <%= form_tag({:action => 'destroy', :id => @topic.id}, :method => 'Delete') do %>
+  <h2>Delete topic</h2>
+  <p>Are you sure you want to delete the following topic?</p>
+    <blockquote>
+      <%= @topic.title %>
+    </blockquote>
+  <%= submit_tag("Confirm", :class => 'btn btn-danger') %>
+  <% end %>
+</div>

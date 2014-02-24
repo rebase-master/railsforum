@@ -1,51 +1,54 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.order("id ASC")
-    respond_to do |format|
-      if request.xhr?
-        format.json { render json: @topics}
-      else
-        format.html{}
-      end
-    end
+    @title = "Forum"
   end
   def new
     @topic = Topic.new
+    @title = "New Topic"
   end
 
-  #def create
-  #  if request.xhr?
-  #      @topic = Topic.new(topic_params)
-  #      flash[:notice] = "Topic created successfully!"
-  #      #format.json { render json: @topic}
-  #  end
-  #end
   def create
     @topic = Topic.new(topic_params)
-    respond_to do |format|
-      if @topic.save
-        format.html { redirect_to @topic, notice: 'User was successfully created.' }
-        format.js   {}
-        format.json { render json: @topic, status: :created, location: @topic }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    if @topic.save
+      flash[:notice] = "Topic created successfully!"
+      redirect_to(topic_path(@topic.id))
+    else
+      flash[:notice] = "Error creating topic!"
+      render 'new'
     end
   end
   def show
+    @topic = Topic.find(params[:id])
+    @title = @topic.title
   end
 
   def edit
+    @topic = Topic.find(params[:id])
+    @title = "Edit Topic"
   end
 
   def update
+    @topic = Topic.find(params[:id])
+      if @topic.update_attributes(topic_params)
+        flash[:notice] = "Topic updated successfully!"
+        redirect_to(topic_path(@topic.id))
+      else
+        flash[:notice] = "Error updating topic!"
+        render 'edit'
+      end
   end
 
   def delete
+    @topic = Topic.find(params[:id])
+    @title = "Delete Topic"
   end
 
   def destroy
+    topic = Topic.find(params[:id])
+    topic.destroy
+    flash[:notice] = "Topic '#{topic.title}' deleted successfully!"
+    redirect_to(:action => 'index')
   end
 
   private

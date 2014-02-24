@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+    <div class="bg-success text-center">
+      <p><%= flash[:notice] %></p>
+    </div>
+<% end %>
+<%= link_to 'Create Topic', new_topic_path(), :class => 'btn btn-primary pull-right btn-md' %>
+<br /><br />
+<div class="list-topics col-sm-12 clearfix">
+<% @topics.any? { %>
+  <table class="table">
+      <thead>
+      <tr>
+        <th>Topic</th>
+        <th>Created By</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @topics.each do |topic| %>
+        <tr>
+          <td><%= link_to topic.title, topic_path(topic.id) %></td>
+          <td><%= topic.name %></td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+<% } %>
+</div>

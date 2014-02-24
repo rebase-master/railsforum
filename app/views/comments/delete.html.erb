@@ -1,2 +1,12 @@
-<h1>Comments#delete</h1>
-<p>Find me in app/views/comments/delete.html.erb</p>
+<%= link_to 'Back', topic_path(@topic.id), :class => 'btn btn-success' %><br /><br />
+<div class="col-sm-6 show-topic">
+<%= form_tag({:action => 'destroy', :id => @topic.id}, :method => 'Delete') do %>
+      <input type="hidden" name="id" id="id" value="<%= @comment.id %>" />
+      <h2>Delete comment</h2>
+      <p>Are you sure you want to delete the following comment?</p>
+      <blockquote>
+        <%= @comment.content %>
+      </blockquote>
+      <%= submit_tag("Confirm", :class => 'btn btn-danger') %>
+  <% end %>
+</div>

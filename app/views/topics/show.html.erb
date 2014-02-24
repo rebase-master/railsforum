@@ -1,2 +1,27 @@
-<h1>Forum#show</h1>
-<p>Find me in app/views/forum/show.html.erb</p>
+<% if !flash[:notice].blank? %>
+    <div class="bg-success text-center">
+      <p><%= flash[:notice] %></p>
+    </div>
+<% end %>
+ <%= link_to 'Back', root_path, :class => 'btn btn-success' %><br /><br />
+<div class="show-topic col-lg-12">
+<div class="topic">
+  <h2><%= @topic.title %></h2> - <i><%= @topic.name %></i>
+  <%= link_to 'Edit', edit_topic_path(@topic.id), :class => 'btn btn-info btn-sm pull-right' %>
+  <blockquote>
+    <%= @topic.content %>
+  </blockquote>
+</div>
+  <%= link_to 'Comment', new_topic_comment_path(@topic.id), :class => 'btn btn-primary btn-sm' %>
+  <% @topic.comments.any? { %>
+      <div class="topic_reponse">
+        <% (@topic.comments).each do |comment| %>
+            <div class="comments">
+                <%= link_to 'Edit', edit_topic_comment_path(@topic.id, comment.id), :class => 'btn btn-primary btn-xs pull-right' %>
+                <b><%= comment.name %></b>
+                <p><%= comment.content %></p>
+            </div>
+        <% end %>
+      </div>
+      <% } %>
+</div>

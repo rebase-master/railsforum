@@ -1,16 +1,18 @@
 .main{
-    border: 1px solid #000;
-    min-height: 500px;
+    /*border: 1px solid #000;*/
+    /*min-height: 500px;*/
 }
 .top{
-    border: 1px solid #f00;
+    /*border: 1px solid #f00;*/
     /*min-height: 100px;*/
 }
 .mid{
-    border: 1px solid #0f0;
+    /*border: 1px solid #0f0;*/
     /*min-height: 100px;*/
     padding: 10px 5px;
     margin-bottom: 30px !important;
+    /*border: 1px solid #CCCCCC;*/
+    /*border-radius: 1ex;*/
 }
 .bottom {
     bottom: 0;
@@ -23,7 +25,7 @@
     display: block;
     width: 100%;
 }
-.ccc{
+.ccc {
     margin-bottom: 5px;
 }
 .table{
@@ -31,4 +33,50 @@
 }
 .form-horizontal textarea{
     resize: vertical;
+}
+.show-topic {
+    background-color: #FFFFCE;
+    border: 1px solid #DDDDDD;
+    border-radius: 1ex;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    /*padding-top: 10px;*/
+}
+.show-topic blockquote{
+    color: #198919;
+}
+.topic {
+    border-bottom: 1px solid #AAAAAA;
+    margin-bottom: 5px;
+}
+.show-topic h2{
+    color: #C03838;
+}
+.list-topics {
+    background-color: #FFFFCE;
+    border: 1px solid #CCCCCC;
+    border-radius: 1ex;
+}
+.list-topics a{
+    color: #C03838;
+}
+.list-topics .table td{
+    color: #555;
+}
+.btn-danger{
+    padding: 5px 12px;
+}
+.topic_reponse {
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 1ex;
+    margin: 1% 0;
+    padding: 10px 25px;
+}
+.topic_reponse .comments {
+    border-bottom: 1px solid #CCCCCC;
+    margin-bottom: 10px;
+}
+.topic_reponse .comments p {
+    color: #555555;
 }
